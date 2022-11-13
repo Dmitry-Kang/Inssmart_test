@@ -183,7 +183,6 @@ h2 {
 .input {
   appearance: none;
   display: block;
-  width: 100%;
   font-size: 16px;
   font-weight: 400;
   font-style: normal;
@@ -411,7 +410,6 @@ h2 {
 /* Media queries */
 @media screen and (min-width: 1024px) {
   button[type="submit"] {
-    margin-left: 20px;
     width: 100%;
   }
   h1 {
