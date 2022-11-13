@@ -1,0 +1,488 @@
+/* Styles reset */
+* {
+  :before,
+  :after {
+    box-sizing: border-box;
+  }
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+:focus,
+:active {
+  outline: none;
+}
+
+[role="button"] {
+  cursor: pointer;
+}
+
+[tabindex="-1"]:focus:not(:focus-visible) {
+  outline: 0 !important;
+}
+
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+input {
+  margin: 0;
+  font-family: inherit;
+  line-height: inherit;
+}
+
+article,
+figure,
+main,
+section {
+  display: block;
+}
+button {
+      &::-moz-focus-inner {
+        padding: 0;
+        border: 0;
+      }
+  text-transform: none;
+  border-radius: 0;
+  background: none;
+  padding: 0;
+  margin: 0;
+    
+}
+
+input,button {
+    :focus {
+        outline: none;
+      }
+}
+button,
+input {
+  overflow: visible;
+}
+
+button,
+[type="button"] {
+  -webkit-appearance: button;
+}
+
+button:not(:disabled),
+[type="button"]:not(:disabled) {
+  cursor: pointer;
+}
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner {
+  padding: 0;
+  border-style: none;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: top;
+}
+
+input,
+button {
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+html,
+body {
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+label {
+  display: inline-block;
+  margin-bottom: 0;
+  cursor: pointer;
+}
+
+ol,
+ul,
+dl {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+ol ol,
+ul ul,
+ol ul,
+ul ol {
+  margin-bottom: 0;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+ul li {
+  list-style: none;
+}
+
+/* General styles */
+:root {
+  --fontPrimary: "Montserrat", Helvetica, "Trebuchet MS", Tahoma, sans-serif;
+  --main: #0c0c0c;
+  --white: #fff;
+  --text: #494949;
+  --grey: #d9d9d9;
+  --bg: #f4f4f4;
+  --blue: #3922c5;
+  --blue-hover: #2c1a9a;
+  --blue-focus: #1f1368;
+  --error: #c53922;
+  --transition: 0.3s ease-in-out;
+}
+
+body {
+  min-width: 320px;
+  font-family: var(--fontPrimary);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  color: var(--text);
+  background-color: var(--bg);
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--main);
+}
+h2 {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--main);
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 846px;
+}
+.input {
+  appearance: none;
+  display: block;
+  width: 100%;
+  font-size: 16px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.5;
+  color: var(--main);
+  padding: 14px 16px;
+  border: 1px solid var(--grey);
+  border-radius: 16px;
+  transition: border-color var(--transition);
+}
+.input:focus {
+  border-color: var(--blue);
+}
+.input::placeholder {
+  color: var(--grey);
+  transition: color var(--transition);
+}
+.input._error {
+  border-color: var(--error);
+}
+.input._error::placeholder {
+  color: var(--error);
+}
+.button {
+  display: inline-block;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
+  color: var(--main);
+  padding: 14px 24px;
+  border-radius: 16px;
+  transition: all var(--transition);
+}
+.button:hover {
+  color: var(--blue-hover);
+}
+.button:active,
+.button:focus {
+  color: var(--blue-focus);
+}
+.button--primary {
+  color: var(--white);
+  background-color: var(--blue);
+}
+.button--primary:hover {
+  color: var(--white);
+  background-color: var(--blue-hover);
+}
+.button--primary:active,
+.button--primary:focus {
+  color: var(--white);
+  background-color: var(--blue-focus);
+}
+
+.tabs {
+  padding: 40px 20px 50px;
+  min-width: 335px;
+}
+
+/* Styles for accordion state */
+.tabcordion:not(.has-tabs) .tabcordion__tabs {
+  opacity: 0;
+  height: 0;
+  visibility: hidden;
+}
+.tabcordion:not(.has-tabs) .tabcordion__entry {
+  position: relative;
+  border-radius: 20px;
+}
+.tabcordion:not(.has-tabs) .tabcordion__entry + .tabcordion__entry {
+  margin-top: 20px;
+}
+.tabcordion:not(.has-tabs) .tabcordion__entry::before {
+  position: relative;
+  display: block;
+  content: attr(data-title);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--main);
+  padding: 22px 50px 21px 20px;
+  z-index: 1;
+  cursor: pointer;
+}
+.tabcordion:not(.has-tabs) .tabcordion__entry.is-active::before {
+  color: var(--blue);
+}
+.tabcordion:not(.has-tabs) .tabcordion__entry::after {
+  content: url("../icons/shevron.svg");
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 25px;
+  right: 20px;
+  transition: transform var(--transition);
+}
+.tabcordion:not(.has-tabs) .tabcordion__entry.is-active::after {
+  transform: rotate(180deg);
+}
+.tabcordion:not(.has-tabs) .tabcordion__entry .card {
+  transition: margin 500ms ease-in;
+}
+.tabcordion:not(.has-tabs) .tabcordion__entry.is-active .card {
+  transition: margin 500ms ease-in -100ms;
+}
+
+/* Styles for tabs state */
+
+.tabcordion.has-tabs .tabcordion__entry {
+  min-height: 0;
+}
+.tabcordion.has-tabs .tabcordion__entry.is-active .content {
+  opacity: 1;
+  transition: opacity 400ms ease-in-out;
+}
+.tabcordion.has-tabs .tabcordion__entry .content {
+  opacity: 0;
+  transition: opacity 400ms ease-in-out;
+}
+
+/* General styles for tabs and accordion states*/
+.tabcordion {
+  max-width: 846px;
+}
+.tabcordion__tabs {
+  display: flex;
+  flex-flow: wrap;
+}
+.tabcordion__tabs .tab {
+  display: block;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--main);
+  background-color: var(--grey);
+  padding: 20px 24px;
+  border-radius: 20px 20px 0px 0px;
+  transition: all var(--transition);
+}
+.tabcordion__tabs .tab.is-active {
+  color: var(--blue);
+  background-color: var(--white);
+}
+.tabcordion__entry {
+  background-color: var(--white);
+  overflow: hidden;
+}
+.tabcordion__entry.is-active .card {
+  height: auto;
+  opacity: 1;
+  margin-top: 0;
+}
+.tabcordion__entry .wrapper {
+  overflow: hidden;
+}
+.tabcordion__entry .card {
+  position: relative;
+  height: 0;
+  opacity: 0;
+  margin-top: -100%;
+}
+
+/* Bike card styles */
+.card {
+  padding: 30px 20px;
+}
+.card__details {
+  padding-bottom: 30px;
+  border-bottom: 1px solid var(--grey);
+}
+.card__info {
+  margin-top: 20px;
+}
+.card__info h1 + p {
+  margin-top: 20px;
+}
+.card__info p + p {
+  margin-top: 15px;
+}
+.card__properties {
+  margin-top: 30px;
+}
+.card__properties ol,
+.card__properties ul {
+  display: grid;
+  gap: 15px;
+  list-style-position: inside;
+  margin-top: 15px;
+}
+.card__properties ul li {
+  display: grid;
+  grid-template-columns: 16px 1fr;
+  gap: 10px;
+  align-items: start;
+}
+.card__properties ul li::before {
+  content: "";
+  height: 13px;
+  background: url("../icons/bike.svg") center / contain no-repeat;
+  margin-top: 4px;
+}
+.card__form {
+  margin-top: 30px;
+}
+.add-property__wrapper {
+  display: grid;
+  gap: 15px;
+  margin-top: 15px;
+}
+.card__actions {
+  display: grid;
+  grid-template-columns: 120px 120px;
+  gap: 15px;
+  background-color: var(--white);
+  padding: 30px 20px;
+  border-radius: 20px;
+  box-shadow: 0px 10px 40px rgba(12, 12, 12, 0.1);
+  margin-top: 30px;
+}
+
+/* Media queries */
+@media screen and (min-width: 1024px) {
+  button[type="submit"] {
+    margin-left: 20px;
+    width: 100%;
+  }
+  h1 {
+    font-size: 26px;
+  }
+  h2 {
+    font-size: 18px;
+  }
+  p {
+    font-size: 16px;
+  }
+  .tabs {
+    padding: 81px 0;
+  }
+  .tabcordion__entry {
+    border-radius: 0px 20px 20px 20px;
+  }
+  .card {
+    padding: 40px 60px;
+  }
+  .card__details {
+    position: relative;
+    display: grid;
+    grid-template-columns: 226px 1fr;
+    gap: 71px;
+    padding-bottom: 40px;
+  }
+  .card__image {
+    position: absolute;
+    top: 0;
+    left: -128px;
+    max-width: 358px;
+  }
+  .card__info {
+    grid-column: 2 / 3;
+    margin-top: 0;
+  }
+  .card__info p + p {
+    margin-top: 16px;
+  }
+  .card__properties ol,
+  .card__properties ul {
+    grid-template-columns: repeat(2, 290px);
+    column-gap: 30px;
+    row-gap: 20px;
+    font-size: 16px;
+    margin-top: 18px;
+  }
+  .card__properties ul li {
+    grid-template-columns: 20px 1fr;
+    gap: 16px;
+  }
+  .card__properties ul li::before {
+    height: 17px;
+    margin-top: 3px;
+  }
+  .card__form {
+    margin-top: 40px;
+  }
+  .add-property__wrapper {
+    grid-template-columns: 351px 128px;
+    gap: 24px;
+    margin-top: 20px;
+  }
+  .card__actions {
+    grid-template-columns: 92px 112px;
+    gap: 10px;
+    padding: 30px 36px;
+    margin-top: 40px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  
+}
